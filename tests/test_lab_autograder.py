@@ -23,7 +23,7 @@ def test_queries_sql_has_9_queries():
 
 def test_schema_loads():
     result = subprocess.run(
-        ["psql", "-h", "localhost", "-U", "postgres", "-d", "testdb", "-f", "schema.sql"],
+        ["psql", "-h", "localhost", "-U", "postgres", "-d", "levant_tech", "-f", "schema.sql"],
         capture_output=True, text=True,
         env={"PGPASSWORD": "postgres", "PATH": "/usr/bin:/usr/local/bin"}
     )
@@ -32,7 +32,7 @@ def test_schema_loads():
 
 def test_seed_data_loads():
     result = subprocess.run(
-        ["psql", "-h", "localhost", "-U", "postgres", "-d", "testdb", "-f", "seed_data.sql"],
+        ["psql", "-h", "localhost", "-U", "postgres", "-d", "levant_tech", "-f", "seed_data.sql"],
         capture_output=True, text=True,
         env={"PGPASSWORD": "postgres", "PATH": "/usr/bin:/usr/local/bin"}
     )
@@ -41,7 +41,7 @@ def test_seed_data_loads():
 
 def test_queries_execute():
     result = subprocess.run(
-        ["psql", "-h", "localhost", "-U", "postgres", "-d", "testdb", "-f", "queries.sql"],
+        ["psql", "-h", "localhost", "-U", "postgres", "-d", "levant_tech", "-f", "queries.sql"],
         capture_output=True, text=True,
         env={"PGPASSWORD": "postgres", "PATH": "/usr/bin:/usr/local/bin"}
     )
