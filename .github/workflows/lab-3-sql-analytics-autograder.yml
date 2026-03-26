@@ -37,6 +37,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      # I ADDED THIS BLOCK 
+      - name: Create levant_tech database
+        run: |
+          PGPASSWORD=postgres psql -h localhost -U postgres -d postgres -c "CREATE DATABASE levant_tech;"
+
       - name: Run autograder tests
         run: pytest tests/ -v
         env:
